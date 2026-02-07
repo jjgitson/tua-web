@@ -1,29 +1,50 @@
-/* 기본 폰트 최적화 */
+/* Custom Styles for TUA Web */
+
+/* 1. Typography */
 body {
-    word-break: keep-all;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.01em;
 }
 
-/* 부드러운 호버 애니메이션 */
-a, button {
-    transition: all 0.3s ease;
+h1, h2, h3, .font-display {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.03em;
 }
 
-/* 폼 입력창 포커스 스타일 */
-input:focus::placeholder, textarea:focus::placeholder {
-    opacity: 0.5;
+/* 2. Smooth Transitions */
+a, button, input, textarea {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 스크롤바 커스텀 (옵션) */
-::-webkit-scrollbar {
-    width: 8px;
+/* 3. Section Scroll Margin (Nav height compensation) */
+section {
+    scroll-margin-top: 80px;
 }
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
+
+/* 4. CI Logo Symbol Animation (Soft Pulse) */
+@keyframes softPulse {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
 }
-::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 10px;
+
+nav svg {
+    animation: softPulse 3s infinite ease-in-out;
 }
-::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+
+/* 5. Custom Selection Color */
+::selection {
+    background-color: #1F6FB2;
+    color: white;
+}
+
+/* 6. Form Optimization */
+input::placeholder, textarea::placeholder {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+}
+
+/* 7. Image Placeholders / Background Accents */
+.bg-tuaLight {
+    background-color: #F5F8FA;
 }
