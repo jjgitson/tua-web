@@ -1,43 +1,43 @@
-/* Custom Animations & Refinements */
+/* Custom Global Styles */
 
-/* 폰트 및 자간 미세조정 */
+/* 폰트 최적화 */
 body {
     word-break: keep-all;
-    letter-spacing: -0.01em;
 }
 
-h1, h2, h3, .font-display {
-    letter-spacing: -0.02em;
-}
-
-/* 마키 애니메이션 (슬로건 스크롤) */
+/* 마키 애니메이션 (배너 슬라이드) */
 @keyframes marquee {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
-
 .animate-marquee {
     display: inline-flex;
-    animation: marquee 30s linear infinite;
+    animation: marquee 40s linear infinite;
     width: max-content;
 }
 
-/* 부드러운 스크롤 */
-html {
-    scroll-behavior: smooth;
+/* 로고 플로팅 애니메이션 */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+.animate-float {
+    animation: float 5s ease-in-out infinite;
 }
 
-/* 입력 필드 애니메이션 */
-input, textarea, select {
-    transition: border-color 0.3s ease;
+/* 폼 입력 포커스 효과 */
+input:focus, textarea:focus {
+    box-shadow: 0 10px 30px -10px rgba(0, 145, 210, 0.2);
 }
 
-/* 섹션 스크롤 위치 보정 */
-section {
-    scroll-margin-top: 80px;
+/* 스크롤바 커스텀 */
+::-webkit-scrollbar {
+    width: 6px;
 }
-
-/* 반응형 모바일 최적화 */
-@media (max-width: 768px) {
-    h1 { font-size: 2.5rem !important; }
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #0091D2;
+    border-radius: 10px;
 }
