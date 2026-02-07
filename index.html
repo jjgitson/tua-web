@@ -11,9 +11,9 @@
             theme: {
                 extend: {
                     colors: {
-                        tuaBlue: '#0091D2',
-                        tuaGreen: '#7AC142',
-                        tuaNavy: '#1E3A5F',
+                        tuaBlue: '#0091D2',   /* 로고 메인 블루 */
+                        tuaGreen: '#7AC142',  /* 로고 메인 그린 */
+                        tuaNavy: '#003358',   /* tua-text에서 추출한 깊은 네이비 */
                         tuaLight: '#F8FAFC',
                     },
                     fontFamily: {
@@ -24,12 +24,7 @@
             }
         }
     </script>
-    <style>
-        body { word-break: keep-all; }
-        /* 배경 그레이스케일 심볼 설정 */
-        .grayscale-bg { filter: grayscale(100%); opacity: 0.03; pointer-events: none; }
-        section { scroll-margin-top: 80px; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-white text-tuaNavy antialiased font-sans">
 
@@ -38,24 +33,28 @@
             <a href="#home" class="flex items-center">
                 <img src="tua-head.png" alt="TUA Logo" class="h-10 w-auto">
             </a>
-            <div class="hidden md:flex space-x-8 text-[11px] font-bold uppercase tracking-[0.2em]">
+            <div class="hidden md:flex items-center space-x-10 text-[11px] font-bold uppercase tracking-[0.2em]">
                 <a href="#home" class="hover:text-tuaBlue transition">Home</a>
                 <a href="#about" class="hover:text-tuaBlue transition">Our Origin</a>
                 <a href="#expertise" class="hover:text-tuaBlue transition">Expertise</a>
                 <a href="#customers" class="hover:text-tuaBlue transition">Customers</a>
-                <a href="#contact" class="bg-tuaBlue text-white px-5 py-2 rounded-full hover:bg-tuaNavy transition font-display">Contact</a>
+                <a href="https://blog.tuatua.kr" target="_blank" class="hover:text-tuaBlue transition flex items-center gap-1">
+                    Blog
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+                <a href="#contact" class="bg-tuaNavy text-white px-6 py-2.5 rounded-full hover:bg-tuaBlue transition font-display tracking-normal normal-case text-xs">Contact</a>
             </div>
         </div>
     </nav>
 
-    <section id="home" class="relative pt-48 pb-32 overflow-hidden bg-white">
+    <section id="home" class="relative pt-52 pb-32 overflow-hidden bg-white">
         <div class="absolute right-[-10%] top-[10%] z-0 grayscale-bg">
-            <img src="tua-symbol.png" alt="" class="w-[800px]">
+            <img src="tua-symbol.png" alt="" class="w-[850px]">
         </div>
 
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="max-w-3xl">
-                <div class="inline-block border border-tuaBlue/30 text-tuaBlue text-[10px] font-bold px-3 py-1 rounded-full mb-8 tracking-widest uppercase">
+                <div class="inline-block border border-tuaBlue/30 text-tuaBlue text-[10px] font-bold px-3 py-1 rounded-sm mb-8 tracking-[0.2em] uppercase">
                     Your Partner in Growth
                 </div>
                 <h1 class="font-display text-5xl lg:text-7xl font-extrabold mb-8 leading-[1.1] tracking-tight text-tuaNavy">
@@ -67,15 +66,15 @@
                     <p class="text-2xl font-bold text-tuaNavy leading-snug">
                         Selling Value, Not Just Specs.
                     </p>
-                    <p class="text-lg text-slate-500 leading-relaxed max-w-2xl">
-                        We don’t just put products on a shelf. This is what sets TUA apart from other resellers. We work closely with innovative healthcare companies to achieve successful market entry and lasting growth in the Korean market.
+                    <p class="text-lg text-slate-500 leading-relaxed max-w-2xl font-light">
+                        We don’t just put products on a shelf. TUA identifies and builds the true market value that others overlook, ensuring lasting growth for innovative healthcare solutions in Korea.
                     </p>
                 </div>
 
-                <div class="flex items-center gap-8 text-sm">
-                    <a href="#contact" class="bg-tuaNavy text-white px-10 py-4 rounded-xl font-bold hover:bg-tuaBlue transition shadow-xl">Partner with Us</a>
+                <div class="flex items-center gap-8">
+                    <a href="#contact" class="bg-tuaNavy text-white px-10 py-4 rounded-sm font-bold hover:bg-tuaBlue transition shadow-xl">Partner with Us</a>
                     <div class="h-12 w-[1px] bg-slate-200"></div>
-                    <p class="font-bold text-slate-400 uppercase tracking-widest leading-tight">
+                    <p class="text-[11px] font-bold text-slate-400 uppercase tracking-[0.2em] leading-tight">
                         Technology For<br>Universal Access
                     </p>
                 </div>
@@ -85,7 +84,7 @@
 
     <section id="about" class="py-32 bg-tuaLight">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-20 items-start">
+            <div class="grid lg:grid-cols-2 gap-24 items-start">
                 <div>
                     <h2 class="font-display text-4xl font-extrabold mb-10 text-tuaNavy">Our Origin</h2>
                     <div class="space-y-6 text-slate-600 leading-relaxed text-lg font-light">
@@ -93,45 +92,42 @@
                             TUA Inc. began with a belief that meaningful technology should be <strong>accessible, usable, and beneficial</strong> to the people and environments where it is needed most.
                         </p>
                         <p>
-                            Working with organizations such as <strong>Samsung, Hyundai Motor, and Microsoft</strong>, our team studied user behavior and physiological responses during real-world tasks to translate measurable data into practical insights.
+                            Collaborating with organizations like <strong>Samsung, Hyundai Motor, and Microsoft</strong>, we studied user behavior and physiological responses to translate measurable data into actionable clinical insights.
                         </p>
                     </div>
                 </div>
-                <div class="grid gap-6">
-                    <div class="p-10 bg-white rounded-3xl border border-slate-100 shadow-sm">
-                        <h3 class="font-display text-xl font-bold mb-4 text-tuaBlue uppercase italic">Our Vision</h3>
-                        <p class="text-slate-500 leading-relaxed text-sm">To become the most trusted bridge connecting scientifically validated healthcare technologies with communities that can benefit from them.</p>
+                <div class="grid gap-8">
+                    <div class="p-10 bg-white border border-slate-100 shadow-sm">
+                        <h3 class="font-display text-xs font-bold mb-4 text-tuaBlue uppercase tracking-widest">Our Vision</h3>
+                        <p class="text-slate-600 leading-relaxed font-medium">To be the most trusted bridge connecting validated healthcare technologies with communities that benefit from them.</p>
                     </div>
-                    <div class="p-10 bg-white rounded-3xl border border-slate-100 shadow-sm">
-                        <h3 class="font-display text-xl font-bold mb-4 text-tuaGreen uppercase italic">Our Mission</h3>
-                        <p class="text-slate-500 leading-relaxed text-sm">Successfully entering and growing evidence-based solutions in physical function and aging science through localization and implementation.</p>
+                    <div class="p-10 bg-white border border-slate-100 shadow-sm">
+                        <h3 class="font-display text-xs font-bold mb-4 text-tuaGreen uppercase tracking-widest">Our Mission</h3>
+                        <p class="text-slate-600 leading-relaxed font-medium">Empowering aging science and physical function solutions through expert localization and sustainable implementation.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="expertise" class="py-32 bg-white border-b border-slate-50">
+    <section id="expertise" class="py-32 bg-white">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-20 text-center">
-                <h2 class="font-display text-4xl font-extrabold mb-4 uppercase tracking-tight text-tuaNavy text-center">Expertise</h2>
-                <p class="text-slate-400 uppercase text-xs font-bold tracking-[0.3em] text-center">Industries We Serve</p>
+            <div class="text-center mb-24">
+                <h2 class="font-display text-4xl font-extrabold mb-4 uppercase tracking-tight text-tuaNavy">Expertise</h2>
+                <div class="w-12 h-1 bg-tuaGreen mx-auto"></div>
             </div>
-            <div class="grid lg:grid-cols-3 gap-12 text-center md:text-left">
+            <div class="grid lg:grid-cols-3 gap-16">
                 <div class="space-y-6">
-                    <div class="w-12 h-[2px] bg-tuaBlue mx-auto md:mx-0"></div>
-                    <h4 class="font-display text-2xl font-bold">Healthcare</h4>
-                    <p class="text-slate-500 leading-relaxed text-sm">As Korea invests heavily in senior welfare, TUA helps you reach care providers across the country's expanding ecosystem.</p>
+                    <h4 class="font-display text-2xl font-bold text-tuaBlue">Healthcare</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">Strategic entry into Korea's expanding senior welfare ecosystem and nationwide provider networks.</p>
                 </div>
-                <div class="space-y-6 text-center">
-                    <div class="w-12 h-[2px] bg-tuaGreen mx-auto"></div>
-                    <h4 class="font-display text-2xl font-bold">Research</h4>
-                    <p class="text-slate-500 leading-relaxed text-sm">Connecting you with top academic and research institutions through proven clinical and behavioral research experience.</p>
+                <div class="space-y-6">
+                    <h4 class="font-display text-2xl font-bold text-tuaGreen">Research</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">Connecting with top-tier academic institutions through clinical and behavioral research expertise.</p>
                 </div>
-                <div class="space-y-6 text-center md:text-right">
-                    <div class="w-12 h-[2px] bg-tuaBlue mx-auto md:ml-auto md:mr-0 text-center"></div>
-                    <h4 class="font-display text-2xl font-bold text-right">Medical</h4>
-                    <p class="text-slate-500 leading-relaxed text-sm text-right">Precise audience targeting and expertise in physical function assessment for international medical companies.</p>
+                <div class="space-y-6">
+                    <h4 class="font-display text-2xl font-bold text-tuaBlue">Medical</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">Audience targeting and physical function assessment expertise for international medical firms.</p>
                 </div>
             </div>
         </div>
@@ -139,71 +135,64 @@
 
     <section id="customers" class="py-32 bg-tuaNavy text-white">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-20 text-center">
-                <h2 class="font-display text-4xl font-extrabold mb-4 italic uppercase text-center">Market Reach</h2>
-                <p class="text-slate-400 text-xs font-bold tracking-[0.4em] uppercase text-center">Verified Leads in Korea’s Ecosystem</p>
+            <div class="text-center mb-24">
+                <h2 class="font-display text-4xl font-extrabold mb-4 uppercase">Market Reach</h2>
+                <p class="text-tuaBlue text-[11px] font-bold tracking-[0.4em] uppercase">Verified Leads in Korea’s Healthcare Ecosystem</p>
             </div>
-            <div class="grid grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-12">
-                <div class="text-center font-display">
-                    <div class="text-5xl font-black mb-2 tracking-tighter">47</div>
-                    <div class="text-[10px] uppercase font-bold text-slate-500 tracking-widest text-center">Tertiary Hospitals</div>
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-12">
+                <div class="text-center">
+                    <div class="text-6xl font-black mb-3 text-tuaBlue">47</div>
+                    <div class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Tertiary Hospitals</div>
                 </div>
-                <div class="text-center font-display">
-                    <div class="text-5xl font-black mb-2 tracking-tighter">~300</div>
-                    <div class="text-[10px] uppercase font-bold text-slate-500 tracking-widest text-center">General Hospitals</div>
+                <div class="text-center border-x border-white/5">
+                    <div class="text-6xl font-black mb-3 text-tuaGreen">300+</div>
+                    <div class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">General Hospitals</div>
                 </div>
-                <div class="text-center font-display">
-                    <div class="text-5xl font-black mb-2 tracking-tighter">~190</div>
-                    <div class="text-[10px] uppercase font-bold text-slate-500 tracking-widest text-center">Universities</div>
+                <div class="text-center">
+                    <div class="text-6xl font-black mb-3 text-tuaBlue">190+</div>
+                    <div class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Universities</div>
                 </div>
-                <div class="text-center font-display">
-                    <div class="text-5xl font-black mb-2 tracking-tighter">1464</div>
-                    <div class="text-[10px] uppercase font-bold text-slate-500 tracking-widest text-center">Long-term Care</div>
+                <div class="text-center">
+                    <div class="text-6xl font-black mb-3 text-tuaGreen">1464</div>
+                    <div class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Long-term Care</div>
                 </div>
-                <div class="text-center font-display">
-                    <div class="text-5xl font-black mb-2 tracking-tighter">700+</div>
-                    <div class="text-[10px] uppercase font-bold text-slate-500 tracking-widest text-center">Health Centers</div>
+                <div class="text-center border-x border-white/5">
+                    <div class="text-6xl font-black mb-3 text-tuaBlue">700+</div>
+                    <div class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Public Health Centers</div>
                 </div>
-                <div class="text-center font-display">
-                    <div class="text-5xl font-black mb-2 tracking-tighter">840</div>
-                    <div class="text-[10px] uppercase font-bold text-slate-500 tracking-widest text-center">Listed Companies</div>
+                <div class="text-center">
+                    <div class="text-6xl font-black mb-3 text-tuaGreen">840</div>
+                    <div class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Listed Companies</div>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="contact" class="py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 items-start">
             <div>
-                <img src="tua-text.png" alt="TUA Logo" class="h-10 mb-12 grayscale opacity-50">
-                <h2 class="font-display text-4xl font-bold mb-8 text-tuaNavy leading-tight">Ready to grow<br>your impact?</h2>
-                <div class="space-y-8">
-                    <div>
-                        <p class="text-[10px] uppercase font-bold tracking-widest text-slate-400 mb-2">Email</p>
-                        <p class="font-bold text-xl">info@tuatua.kr</p>
-                    </div>
-                    <div>
-                        <p class="text-[10px] uppercase font-bold tracking-widest text-slate-400 mb-2">Address</p>
-                        <p class="text-slate-500 text-sm leading-relaxed uppercase tracking-widest">
-                            7-179, 8 Gangnam-daero 53-gil,<br>Seocho-gu, Seoul, Republic of Korea
-                        </p>
-                    </div>
+                <img src="tua-text.png" alt="TUA Logo" class="h-10 mb-12">
+                <h2 class="font-display text-4xl font-extrabold mb-8 text-tuaNavy">Ready to grow your impact?</h2>
+                <div class="space-y-6">
+                    <p class="font-bold text-2xl text-tuaBlue">info@tuatua.kr</p>
+                    <p class="text-slate-400 text-[11px] font-bold uppercase tracking-widest leading-loose">
+                        7-179, 8 Gangnam-daero 53-gil,<br>Seocho-gu, Seoul, Republic of Korea
+                    </p>
                 </div>
             </div>
-            <form class="bg-tuaLight p-10 rounded-3xl grid gap-6 shadow-sm border border-slate-100">
+            <form class="bg-tuaLight p-10 grid gap-6 border border-slate-100">
                 <div class="grid md:grid-cols-2 gap-6">
-                    <input type="text" placeholder="Name" class="bg-white p-4 rounded-xl outline-none border border-slate-100 focus:border-tuaBlue transition font-sans">
-                    <input type="email" placeholder="Email" class="bg-white p-4 rounded-xl outline-none border border-slate-100 focus:border-tuaBlue transition font-sans">
+                    <input type="text" placeholder="Name" class="bg-white p-4 outline-none border border-slate-200 focus:border-tuaBlue transition">
+                    <input type="email" placeholder="Email" class="bg-white p-4 outline-none border border-slate-200 focus:border-tuaBlue transition">
                 </div>
-                <input type="text" placeholder="Phone" class="bg-white p-4 rounded-xl outline-none border border-slate-100 focus:border-tuaBlue transition font-sans">
-                <textarea placeholder="How can we help?" rows="5" class="bg-white p-4 rounded-xl outline-none border border-slate-100 focus:border-tuaBlue transition font-sans"></textarea>
-                <button class="bg-tuaNavy text-white font-bold py-4 rounded-xl hover:bg-tuaBlue transition uppercase text-xs tracking-widest font-display">Send Message</button>
+                <textarea placeholder="How can we help?" rows="5" class="bg-white p-4 outline-none border border-slate-200 focus:border-tuaBlue transition"></textarea>
+                <button class="bg-tuaNavy text-white font-bold py-4 hover:bg-tuaBlue transition uppercase text-[11px] tracking-[0.2em]">Send Inquiry</button>
             </form>
         </div>
     </section>
 
-    <footer class="py-12 bg-white border-t border-slate-100 text-center">
-        <p class="text-slate-400 text-[10px] font-bold tracking-[0.3em] uppercase text-center font-display tracking-widest">© 2026 TUA Co., Ltd. All Rights Reserved.</p>
+    <footer class="py-12 bg-white border-t border-slate-50 text-center">
+        <p class="text-slate-300 text-[10px] font-bold tracking-[0.3em] uppercase">© 2026 TUA Co., Ltd. All Rights Reserved.</p>
     </footer>
 
 </body>
