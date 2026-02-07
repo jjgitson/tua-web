@@ -504,7 +504,7 @@
   </script>
 <script>
   (async function () {
-    const FEED_URL = "https://tuatua.kr/blog/feed/";
+    const FEED_URL = "https://tuatua.kr/blog/feed/";  // 여기로 고정
     const MAX_POSTS = 6;
 
     const statusEl = document.getElementById("blogStatus");
@@ -516,21 +516,14 @@
         "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
       }[m]));
     }
-
     function stripTags(html) {
       const tmp = document.createElement("div");
       tmp.innerHTML = html || "";
       return (tmp.textContent || "").trim();
     }
 
-    function formatDate(raw) {
-      const d = raw ? new Date(raw) : null;
-      if (!d || Number.isNaN(d.getTime())) return "";
-      return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "2-digit" });
-    }
-
     try {
-      const res = await fetch(FEED_URL, { method: "GET", mode: "cors", cache: "no-store" });
+      const res = await fetch(FEED_URL, { cache: "no-store" });
       if (!res.ok) throw new Error("Feed request failed: " + res.status);
 
       const xmlText = await res.text();
@@ -542,10 +535,11 @@
         return;
       }
 
-      const cards = items.map(item => {
+      gridEl.innerHTML = items.map(item => {
         const title = item.querySelector("title")?.textContent?.trim() || "Untitled";
-        const link = item.querySelector("link")?.textContent?.trim() || "https://blog.tuatua.kr";
-        const date = formatDate(item.querySelector("pubDate")?.textContent?.trim() || "");
+        const link = item.querySelector("link")?.textContent?.trim() || "https://tuatua.kr/blog/";
+        const pubDate = item.querySelector("pubDate")?.textContent?.trim() || "";
+        const date = pubDate ? new Date(pubDate).toLocaleDateString() : "";
         const desc = stripTags(item.querySelector("description")?.textContent || "");
         const excerpt = desc.length > 160 ? desc.slice(0, 160) + "…" : desc;
 
@@ -571,22 +565,17 @@
         `;
       }).join("");
 
-      gridEl.innerHTML = cards;
       statusEl.textContent = "";
     } catch (e) {
-      statusEl.innerHTML = `
-        Posts could not be loaded.
-        <a class="text-tuaBlue font-bold hover:underline focus-ring"
-           href="https://blog.tuatua.kr" target="_blank" rel="noopener noreferrer">
-          Open the blog
-        </a>
-      `;
+      statusEl.textContent = "Unable to load posts.";
       console.log(e);
     }
   })();
 </script>
 
+
 </body>
 </html>
+
 
 
