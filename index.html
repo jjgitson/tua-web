@@ -1,199 +1,410 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TUA Co., Ltd. | Technology for Universal Access</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        tuaBlue: '#0091D2',   /* 로고 메인 블루 */
-                        tuaGreen: '#7AC142',  /* 로고 메인 그린 */
-                        tuaNavy: '#003358',   /* tua-text에서 추출한 깊은 네이비 */
-                        tuaLight: '#F8FAFC',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Montserrat', 'sans-serif'],
-                    }
-                }
-            }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TUA Co., Ltd. | Technology for Universal Access</title>
+
+  <meta name="description" content="TUA Co., Ltd. helps validated healthcare technologies grow in Korea through evidence-based localization and sustainable implementation.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TUA Co., Ltd. | Technology for Universal Access">
+  <meta property="og:description" content="Unlocking hidden value, creating demand in Korea.">
+  <meta name="theme-color" content="#003358">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            tuaBlue: '#0091D2',
+            tuaGreen: '#7AC142',
+            tuaNavy: '#003358',
+            tuaLight: '#F8FAFC',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Montserrat', 'sans-serif'],
+          }
         }
-    </script>
-    <link rel="stylesheet" href="style.css">
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="bg-white text-tuaNavy antialiased font-sans">
 
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#home" class="flex items-center">
-                <img src="tua-head.png" alt="TUA Logo" class="h-10 w-auto">
-            </a>
-            <div class="hidden md:flex items-center space-x-10 text-[11px] font-bold uppercase tracking-[0.2em]">
-                <a href="#home" class="hover:text-tuaBlue transition">Home</a>
-                <a href="#about" class="hover:text-tuaBlue transition">Our Origin</a>
-                <a href="#expertise" class="hover:text-tuaBlue transition">Expertise</a>
-                <a href="#customers" class="hover:text-tuaBlue transition">Customers</a>
-                <a href="https://blog.tuatua.kr" target="_blank" class="hover:text-tuaBlue transition flex items-center gap-1">
-                    Blog
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                </a>
-                <a href="#contact" class="bg-tuaNavy text-white px-6 py-2.5 rounded-full hover:bg-tuaBlue transition font-display tracking-normal normal-case text-xs">Contact</a>
-            </div>
-        </div>
-    </nav>
+  <!-- Skip link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
 
+  <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100" aria-label="Primary">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#home" class="flex items-center" aria-label="TUA home">
+        <img src="tua-head.png" alt="TUA Logo" class="h-10 w-auto">
+      </a>
+
+      <!-- Desktop nav -->
+      <div class="hidden md:flex items-center space-x-10 text-[12px] font-bold uppercase tracking-[0.2em]">
+        <a href="#home" class="hover:text-tuaBlue transition focus-ring" aria-current="page">Home</a>
+        <a href="#about" class="hover:text-tuaBlue transition focus-ring">Our Origin</a>
+        <a href="#expertise" class="hover:text-tuaBlue transition focus-ring">Expertise</a>
+        <a href="#customers" class="hover:text-tuaBlue transition focus-ring">Customers</a>
+        <a href="https://blog.tuatua.kr" target="_blank" rel="noopener noreferrer"
+           class="hover:text-tuaBlue transition flex items-center gap-1 focus-ring">
+          Blog
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+          </svg>
+        </a>
+        <a href="#contact" class="bg-tuaNavy text-white px-6 py-2.5 rounded-full hover:bg-tuaBlue transition font-display tracking-normal normal-case text-xs focus-ring">
+          Contact
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button id="menuBtn"
+              class="md:hidden inline-flex items-center justify-center w-12 h-12 border border-slate-200 bg-white hover:bg-slate-50 transition focus-ring"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="mobileMenu">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu drawer -->
+    <div id="mobileMenuOverlay" class="mobile-overlay" hidden></div>
+
+    <div id="mobileMenu"
+         class="mobile-drawer"
+         role="dialog"
+         aria-modal="true"
+         aria-label="Mobile menu"
+         hidden>
+      <div class="flex items-center justify-between px-6 h-20 border-b border-slate-100">
+        <span class="text-sm font-bold tracking-[0.18em] uppercase text-slate-500">Menu</span>
+        <button id="menuCloseBtn"
+                class="inline-flex items-center justify-center w-12 h-12 border border-slate-200 bg-white hover:bg-slate-50 transition focus-ring"
+                aria-label="Close menu">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="px-6 py-6 grid gap-2 text-sm font-bold uppercase tracking-[0.18em]">
+        <a href="#home" class="mobile-link focus-ring">Home</a>
+        <a href="#about" class="mobile-link focus-ring">Our Origin</a>
+        <a href="#expertise" class="mobile-link focus-ring">Expertise</a>
+        <a href="#customers" class="mobile-link focus-ring">Customers</a>
+        <a href="https://blog.tuatua.kr" target="_blank" rel="noopener noreferrer" class="mobile-link focus-ring flex items-center justify-between">
+          Blog
+          <span class="text-slate-400 text-xs normal-case tracking-normal">opens new tab</span>
+        </a>
+
+        <a href="#contact" class="mt-4 bg-tuaNavy text-white px-5 py-3 text-center hover:bg-tuaBlue transition focus-ring">
+          Contact
+        </a>
+      </div>
+
+      <div class="px-6 pb-8 text-xs text-slate-500 leading-relaxed">
+        Technology for Universal Access.
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
     <section id="home" class="relative pt-52 pb-32 overflow-hidden bg-white">
-        <div class="absolute right-[-10%] top-[10%] z-0 grayscale-bg">
-            <img src="tua-symbol.png" alt="" class="w-[850px]">
-        </div>
+      <div class="absolute right-[-10%] top-[10%] z-0 grayscale-bg">
+        <img src="tua-symbol.png" alt="" class="w-[850px]">
+      </div>
 
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="max-w-3xl">
-                <div class="inline-block border border-tuaBlue/30 text-tuaBlue text-[10px] font-bold px-3 py-1 rounded-sm mb-8 tracking-[0.2em] uppercase">
-                    Your Partner in Growth
-                </div>
-                <h1 class="font-display text-5xl lg:text-7xl font-extrabold mb-8 leading-[1.1] tracking-tight text-tuaNavy">
-                    Unlocking <span class="text-tuaBlue">Hidden Value</span>,<br>
-                    Creating Demand in Korea.
-                </h1>
-                
-                <div class="space-y-6 mb-12">
-                    <p class="text-2xl font-bold text-tuaNavy leading-snug">
-                        Selling Value, Not Just Specs.
-                    </p>
-                    <p class="text-lg text-slate-500 leading-relaxed max-w-2xl font-light">
-                        We don’t just put products on a shelf. TUA identifies and builds the true market value that others overlook, ensuring lasting growth for innovative healthcare solutions in Korea.
-                    </p>
-                </div>
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="max-w-3xl">
+          <div class="inline-block border border-tuaBlue/30 text-tuaBlue text-[11px] font-bold px-3 py-1 rounded-sm mb-8 tracking-[0.2em] uppercase">
+            Your Partner in Growth
+          </div>
 
-                <div class="flex items-center gap-8">
-                    <a href="#contact" class="bg-tuaNavy text-white px-10 py-4 rounded-sm font-bold hover:bg-tuaBlue transition shadow-xl">Partner with Us</a>
-                    <div class="h-12 w-[1px] bg-slate-200"></div>
-                    <p class="text-[11px] font-bold text-slate-400 uppercase tracking-[0.2em] leading-tight">
-                        Technology For<br>Universal Access
-                    </p>
-                </div>
-            </div>
+          <h1 class="font-display text-5xl lg:text-7xl font-extrabold mb-8 leading-[1.1] tracking-tight text-tuaNavy">
+            Unlocking <span class="text-tuaBlue">Hidden Value</span>,<br>
+            Creating Demand in Korea.
+          </h1>
+
+          <div class="space-y-6 mb-12">
+            <p class="text-xl md:text-2xl font-bold text-tuaNavy leading-snug">
+              Selling value, not just specs.
+            </p>
+            <p class="text-lg text-slate-600 leading-relaxed max-w-2xl font-light">
+              TUA identifies and builds market value that others overlook, supporting sustainable growth for validated healthcare solutions in Korea.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-8">
+            <a href="#contact" class="bg-tuaNavy text-white px-10 py-4 rounded-sm font-bold hover:bg-tuaBlue transition shadow-xl focus-ring">
+              Partner with Us
+            </a>
+            <div class="h-12 w-[1px] bg-slate-200" aria-hidden="true"></div>
+            <p class="text-[12px] font-bold text-slate-500 uppercase tracking-[0.2em] leading-tight">
+              Technology For<br>Universal Access
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <section id="about" class="py-32 bg-tuaLight">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-24 items-start">
-                <div>
-                    <h2 class="font-display text-4xl font-extrabold mb-10 text-tuaNavy">Our Origin</h2>
-                    <div class="space-y-6 text-slate-600 leading-relaxed text-lg font-light">
-                        <p>
-                            TUA Inc. began with a belief that meaningful technology should be <strong>accessible, usable, and beneficial</strong> to the people and environments where it is needed most.
-                        </p>
-                        <p>
-                            Collaborating with organizations like <strong>Samsung, Hyundai Motor, and Microsoft</strong>, we studied user behavior and physiological responses to translate measurable data into actionable clinical insights.
-                        </p>
-                    </div>
-                </div>
-                <div class="grid gap-8">
-                    <div class="p-10 bg-white border border-slate-100 shadow-sm">
-                        <h3 class="font-display text-xs font-bold mb-4 text-tuaBlue uppercase tracking-widest">Our Vision</h3>
-                        <p class="text-slate-600 leading-relaxed font-medium">To be the most trusted bridge connecting validated healthcare technologies with communities that benefit from them.</p>
-                    </div>
-                    <div class="p-10 bg-white border border-slate-100 shadow-sm">
-                        <h3 class="font-display text-xs font-bold mb-4 text-tuaGreen uppercase tracking-widest">Our Mission</h3>
-                        <p class="text-slate-600 leading-relaxed font-medium">Empowering aging science and physical function solutions through expert localization and sustainable implementation.</p>
-                    </div>
-                </div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-24 items-start">
+          <div>
+            <h2 class="font-display text-4xl font-extrabold mb-10 text-tuaNavy">Our Origin</h2>
+            <div class="space-y-6 text-slate-700 leading-relaxed text-lg font-light">
+              <p>
+                TUA Inc. began with a belief that meaningful technology should be accessible, usable, and beneficial to the people and environments where it is needed most.
+              </p>
+              <p>
+                Collaborating with organizations like Samsung, Hyundai Motor, and Microsoft, we studied user behavior and physiological responses to translate measurable data into actionable clinical insights.
+              </p>
             </div>
+          </div>
+
+          <div class="grid gap-8">
+            <div class="p-10 bg-white border border-slate-100 shadow-sm">
+              <h3 class="font-display text-xs font-bold mb-4 text-tuaBlue uppercase tracking-widest">Our Vision</h3>
+              <p class="text-slate-700 leading-relaxed font-medium">
+                To be the most trusted bridge connecting validated healthcare technologies with communities that benefit from them.
+              </p>
+            </div>
+            <div class="p-10 bg-white border border-slate-100 shadow-sm">
+              <h3 class="font-display text-xs font-bold mb-4 text-tuaGreen uppercase tracking-widest">Our Mission</h3>
+              <p class="text-slate-700 leading-relaxed font-medium">
+                Empowering aging science and physical function solutions through expert localization and sustainable implementation.
+              </p>
+            </div>
+          </div>
+
         </div>
+      </div>
     </section>
 
     <section id="expertise" class="py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-24">
-                <h2 class="font-display text-4xl font-extrabold mb-4 uppercase tracking-tight text-tuaNavy">Expertise</h2>
-                <div class="w-12 h-1 bg-tuaGreen mx-auto"></div>
-            </div>
-            <div class="grid lg:grid-cols-3 gap-16">
-                <div class="space-y-6">
-                    <h4 class="font-display text-2xl font-bold text-tuaBlue">Healthcare</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">Strategic entry into Korea's expanding senior welfare ecosystem and nationwide provider networks.</p>
-                </div>
-                <div class="space-y-6">
-                    <h4 class="font-display text-2xl font-bold text-tuaGreen">Research</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">Connecting with top-tier academic institutions through clinical and behavioral research expertise.</p>
-                </div>
-                <div class="space-y-6">
-                    <h4 class="font-display text-2xl font-bold text-tuaBlue">Medical</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">Audience targeting and physical function assessment expertise for international medical firms.</p>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-24">
+          <h2 class="font-display text-4xl font-extrabold mb-4 uppercase tracking-tight text-tuaNavy">Expertise</h2>
+          <div class="w-12 h-1 bg-tuaGreen mx-auto" aria-hidden="true"></div>
         </div>
+
+        <div class="grid lg:grid-cols-3 gap-16">
+          <div class="space-y-6">
+            <h3 class="font-display text-2xl font-bold text-tuaBlue">Healthcare</h3>
+            <p class="text-slate-600 text-base leading-relaxed">
+              Strategic entry into Korea's expanding senior welfare ecosystem and nationwide provider networks.
+            </p>
+          </div>
+          <div class="space-y-6">
+            <h3 class="font-display text-2xl font-bold text-tuaGreen">Research</h3>
+            <p class="text-slate-600 text-base leading-relaxed">
+              Connecting with top-tier academic institutions through clinical and behavioral research expertise.
+            </p>
+          </div>
+          <div class="space-y-6">
+            <h3 class="font-display text-2xl font-bold text-tuaBlue">Medical</h3>
+            <p class="text-slate-600 text-base leading-relaxed">
+              Audience targeting and physical function assessment expertise for international medical firms.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="customers" class="py-32 bg-tuaNavy text-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-24">
-                <h2 class="font-display text-4xl font-extrabold mb-4 uppercase">Market Reach</h2>
-                <p class="text-tuaBlue text-[11px] font-bold tracking-[0.4em] uppercase">Verified Leads in Korea’s Healthcare Ecosystem</p>
-            </div>
-            <div class="grid grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-12">
-                <div class="text-center">
-                    <div class="text-6xl font-black mb-3 text-tuaBlue">47</div>
-                    <div class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Tertiary Hospitals</div>
-                </div>
-                <div class="text-center border-x border-white/5">
-                    <div class="text-6xl font-black mb-3 text-tuaGreen">300+</div>
-                    <div class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">General Hospitals</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-6xl font-black mb-3 text-tuaBlue">190+</div>
-                    <div class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Universities</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-6xl font-black mb-3 text-tuaGreen">1464</div>
-                    <div class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Long-term Care</div>
-                </div>
-                <div class="text-center border-x border-white/5">
-                    <div class="text-6xl font-black mb-3 text-tuaBlue">700+</div>
-                    <div class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Public Health Centers</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-6xl font-black mb-3 text-tuaGreen">840</div>
-                    <div class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Listed Companies</div>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-24">
+          <h2 class="font-display text-4xl font-extrabold mb-4 uppercase">Market Reach</h2>
+          <p class="text-tuaBlue text-[12px] font-bold tracking-[0.35em] uppercase">
+            Verified leads in Korea’s healthcare ecosystem
+          </p>
         </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-12">
+          <div class="text-center">
+            <div class="text-6xl font-black mb-3 text-tuaBlue">47</div>
+            <div class="text-xs uppercase font-bold text-slate-200 tracking-widest">Tertiary Hospitals</div>
+          </div>
+          <div class="text-center border-x border-white/5">
+            <div class="text-6xl font-black mb-3 text-tuaGreen">300+</div>
+            <div class="text-xs uppercase font-bold text-slate-200 tracking-widest">General Hospitals</div>
+          </div>
+          <div class="text-center">
+            <div class="text-6xl font-black mb-3 text-tuaBlue">190+</div>
+            <div class="text-xs uppercase font-bold text-slate-200 tracking-widest">Universities</div>
+          </div>
+          <div class="text-center">
+            <div class="text-6xl font-black mb-3 text-tuaGreen">1464</div>
+            <div class="text-xs uppercase font-bold text-slate-200 tracking-widest">Long-term Care</div>
+          </div>
+          <div class="text-center border-x border-white/5">
+            <div class="text-6xl font-black mb-3 text-tuaBlue">700+</div>
+            <div class="text-xs uppercase font-bold text-slate-200 tracking-widest">Public Health Centers</div>
+          </div>
+          <div class="text-center">
+            <div class="text-6xl font-black mb-3 text-tuaGreen">840</div>
+            <div class="text-xs uppercase font-bold text-slate-200 tracking-widest">Listed Companies</div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="contact" class="py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 items-start">
-            <div>
-                <img src="tua-text.png" alt="TUA Logo" class="h-10 mb-12">
-                <h2 class="font-display text-4xl font-extrabold mb-8 text-tuaNavy">Ready to grow your impact?</h2>
-                <div class="space-y-6">
-                    <p class="font-bold text-2xl text-tuaBlue">info@tuatua.kr</p>
-                    <p class="text-slate-400 text-[11px] font-bold uppercase tracking-widest leading-loose">
-                        7-179, 8 Gangnam-daero 53-gil,<br>Seocho-gu, Seoul, Republic of Korea
-                    </p>
-                </div>
-            </div>
-            <form class="bg-tuaLight p-10 grid gap-6 border border-slate-100">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <input type="text" placeholder="Name" class="bg-white p-4 outline-none border border-slate-200 focus:border-tuaBlue transition">
-                    <input type="email" placeholder="Email" class="bg-white p-4 outline-none border border-slate-200 focus:border-tuaBlue transition">
-                </div>
-                <textarea placeholder="How can we help?" rows="5" class="bg-white p-4 outline-none border border-slate-200 focus:border-tuaBlue transition"></textarea>
-                <button class="bg-tuaNavy text-white font-bold py-4 hover:bg-tuaBlue transition uppercase text-[11px] tracking-[0.2em]">Send Inquiry</button>
-            </form>
-        </div>
-    </section>
+      <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 items-start">
+        <div>
+          <img src="tua-text.png" alt="TUA Logo" class="h-10 mb-12">
+          <h2 class="font-display text-4xl font-extrabold mb-8 text-tuaNavy">Ready to grow your impact?</h2>
 
-    <footer class="py-12 bg-white border-t border-slate-50 text-center">
-        <p class="text-slate-300 text-[10px] font-bold tracking-[0.3em] uppercase">© 2026 TUA Co., Ltd. All Rights Reserved.</p>
-    </footer>
+          <div class="space-y-6">
+            <p class="font-bold text-xl md:text-2xl text-tuaBlue">
+              <a class="focus-ring" href="mailto:info@tuatua.kr">info@tuatua.kr</a>
+            </p>
+
+            <p class="text-slate-500 text-xs md:text-[12px] font-bold uppercase tracking-widest leading-loose">
+              7-179, 8 Gangnam-daero 53-gil,<br>Seocho-gu, Seoul, Republic of Korea
+            </p>
+          </div>
+        </div>
+
+        <form class="bg-tuaLight p-10 grid gap-6 border border-slate-100" aria-labelledby="contactTitle">
+          <h3 id="contactTitle" class="sr-only">Contact form</h3>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="text-sm text-slate-700">Name</label>
+              <input id="name" name="name" autocomplete="name" required
+                     type="text"
+                     class="bg-white p-4 w-full outline-none border border-slate-200 focus:border-tuaBlue transition">
+            </div>
+
+            <div>
+              <label for="email" class="text-sm text-slate-700">Email</label>
+              <input id="email" name="email" autocomplete="email" required
+                     type="email"
+                     class="bg-white p-4 w-full outline-none border border-slate-200 focus:border-tuaBlue transition">
+            </div>
+          </div>
+
+          <div>
+            <label for="message" class="text-sm text-slate-700">How can we help?</label>
+            <textarea id="message" name="message" rows="5" required
+                      class="bg-white p-4 w-full outline-none border border-slate-200 focus:border-tuaBlue transition"></textarea>
+          </div>
+
+          <button type="submit"
+                  class="bg-tuaNavy text-white font-bold py-4 hover:bg-tuaBlue transition uppercase text-[12px] tracking-[0.18em] focus-ring">
+            Send Inquiry
+          </button>
+
+          <p class="text-xs text-slate-500 leading-relaxed">
+            By sending this form, you agree that TUA may use your contact information to respond to your inquiry.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-12 bg-white border-t border-slate-50 text-center">
+    <p class="text-slate-400 text-[11px] font-bold tracking-[0.25em] uppercase">
+      © 2026 TUA Co., Ltd. All Rights Reserved.
+    </p>
+  </footer>
+
+  <script>
+    (function () {
+      const btn = document.getElementById('menuBtn');
+      const closeBtn = document.getElementById('menuCloseBtn');
+      const overlay = document.getElementById('mobileMenuOverlay');
+      const drawer = document.getElementById('mobileMenu');
+
+      if (!btn || !closeBtn || !overlay || !drawer) return;
+
+      let lastFocused = null;
+
+      const focusableSelector = [
+        'a[href]',
+        'button:not([disabled])',
+        'input:not([disabled])',
+        'textarea:not([disabled])',
+        '[tabindex]:not([tabindex="-1"])'
+      ].join(',');
+
+      function setOpen(isOpen) {
+        if (isOpen) {
+          lastFocused = document.activeElement;
+          btn.setAttribute('aria-expanded', 'true');
+          overlay.hidden = false;
+          drawer.hidden = false;
+
+          document.body.classList.add('no-scroll');
+
+          // focus first item in drawer
+          const focusables = drawer.querySelectorAll(focusableSelector);
+          if (focusables.length) focusables[0].focus();
+        } else {
+          btn.setAttribute('aria-expanded', 'false');
+          overlay.hidden = true;
+          drawer.hidden = true;
+
+          document.body.classList.remove('no-scroll');
+
+          if (lastFocused && typeof lastFocused.focus === 'function') {
+            lastFocused.focus();
+          }
+        }
+      }
+
+      function onKeyDown(e) {
+        if (drawer.hidden) return;
+
+        // ESC closes
+        if (e.key === 'Escape') {
+          e.preventDefault();
+          setOpen(false);
+          return;
+        }
+
+        // Focus trap
+        if (e.key === 'Tab') {
+          const focusables = drawer.querySelectorAll(focusableSelector);
+          if (!focusables.length) return;
+
+          const first = focusables[0];
+          const last = focusables[focusables.length - 1];
+
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
+
+      btn.addEventListener('click', () => setOpen(true));
+      closeBtn.addEventListener('click', () => setOpen(false));
+      overlay.addEventListener('click', () => setOpen(false));
+      document.addEventListener('keydown', onKeyDown);
+
+      // Close after clicking a menu link
+      drawer.addEventListener('click', (e) => {
+        const target = e.target;
+        if (target && target.tagName === 'A' && target.getAttribute('href')?.startsWith('#')) {
+          setOpen(false);
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>
