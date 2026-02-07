@@ -1,0 +1,29 @@
+/* 기본 폰트 최적화 */
+body {
+    word-break: keep-all;
+}
+
+/* 부드러운 호버 애니메이션 */
+a, button {
+    transition: all 0.3s ease;
+}
+
+/* 폼 입력창 포커스 스타일 */
+input:focus::placeholder, textarea:focus::placeholder {
+    opacity: 0.5;
+}
+
+/* 스크롤바 커스텀 (옵션) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
