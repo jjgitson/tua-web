@@ -504,8 +504,17 @@
   </script>
 <script>
   (async function () {
-    const FEED_URL = "https://tuatua.kr/blog/feed/";  // 여기로 고정
     const MAX_POSTS = 6;
+
+    // 1) 실제 블로그가 있는 곳(서브도메인)의 RSS 후보를 먼저 시도
+    // 2) CORS로 막히면 r.jina.ai 프록시로 재시도(정적 사이트에서 가장 간단한 해결책)
+    const FEED_URLS = [
+      "https://blog.tuatua.kr/feed/",
+      "https://blog.tuatua.kr/rss/",
+      "https://blog.tuatua.kr/?feed=rss2",
+      "https://r.jina.ai/https://blog.tuatua.kr/feed/",
+      "https://r.jina.ai/http://blog.tuatua.kr/feed/"
+    ];
 
     const statusEl = document.getElementById("blogStatus");
     const gridEl = document.getElementById("blogGrid");
@@ -522,11 +531,26 @@
       return (tmp.textContent || "").trim();
     }
 
-    try {
-      const res = await fetch(FEED_URL, { cache: "no-store" });
-      if (!res.ok) throw new Error("Feed request failed: " + res.status);
+    async function fetchFirstWorking(urls) {
+      let lastErr = null;
+      for (const url of urls) {
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error("HTTP " + res.status + " @ " + url);
+          const text = await res.text();
+          return { url, text };
+        } catch (e) {
+          lastErr = e;
+        }
+      }
+      throw lastErr || new Error("All feed requests failed");
+    }
 
-      const xmlText = await res.text();
+    try {
+      statusEl.textContent = "Loading posts…";
+
+      const { text: xmlText } = await fetchFirstWorking(FEED_URLS);
+
       const doc = new DOMParser().parseFromString(xmlText, "text/xml");
       const items = Array.from(doc.querySelectorAll("item")).slice(0, MAX_POSTS);
 
@@ -537,7 +561,7 @@
 
       gridEl.innerHTML = items.map(item => {
         const title = item.querySelector("title")?.textContent?.trim() || "Untitled";
-        const link = item.querySelector("link")?.textContent?.trim() || "https://tuatua.kr/blog/";
+        const link = item.querySelector("link")?.textContent?.trim() || "https://blog.tuatua.kr/";
         const pubDate = item.querySelector("pubDate")?.textContent?.trim() || "";
         const date = pubDate ? new Date(pubDate).toLocaleDateString() : "";
         const desc = stripTags(item.querySelector("description")?.textContent || "");
@@ -574,8 +598,10 @@
 </script>
 
 
+
 </body>
 </html>
+
 
 
 
