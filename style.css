@@ -112,3 +112,61 @@ input, textarea, button {
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #f8fafc; }
 ::-webkit-scrollbar-thumb { background: #0091D2; }
+
+/* Process section */
+.process-card{
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+  min-height: 220px;
+}
+
+.process-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.process-step{
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: 18px;
+  color: #003358;
+  opacity: 0.9;
+}
+
+.process-pill{
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  padding: 10px 12px;
+  border: 1px solid rgba(0, 145, 210, 0.25);
+  color: #0091D2;
+  background: rgba(0, 145, 210, 0.06);
+}
+
+.process-pill.green{
+  border: 1px solid rgba(122, 193, 66, 0.28);
+  color: #7AC142;
+  background: rgba(122, 193, 66, 0.08);
+}
+
+.process-title{
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  color: #003358;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.process-desc{
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.7;
+}
