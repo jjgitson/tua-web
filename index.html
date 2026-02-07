@@ -51,7 +51,8 @@
         <a href="#about" class="hover:text-tuaBlue transition focus-ring">Our Origin</a>
         <a href="#expertise" class="hover:text-tuaBlue transition focus-ring">Expertise</a>
         <a href="#customers" class="hover:text-tuaBlue transition focus-ring">Customers</a>
-      <a href="#blog" class="hover:text-tuaBlue transition focus-ring">Blog</a>
+  <a href="https://blog.tuatua.kr" target="_blank" rel="noopener noreferrer" class="hover:text-tuaBlue transition focus-ring">Blog</a>
+
 
         <a href="#contact" class="bg-tuaNavy text-white px-6 py-2.5 rounded-full hover:bg-tuaBlue transition font-display tracking-normal normal-case text-xs focus-ring">
           Contact
@@ -95,7 +96,8 @@
         <a href="#about" class="mobile-link focus-ring">Our Origin</a>
         <a href="#expertise" class="mobile-link focus-ring">Expertise</a>
         <a href="#customers" class="mobile-link focus-ring">Customers</a>
-      <a href="#blog" class="mobile-link focus-ring">Blog</a>
+<a href="https://blog.tuatua.kr" target="_blank" rel="noopener noreferrer" class="hover:text-tuaBlue transition focus-ring">Blog</a>
+
 
 
         <a href="#contact" class="mt-4 bg-tuaNavy text-white px-5 py-3 text-center hover:bg-tuaBlue transition focus-ring">
@@ -346,11 +348,18 @@
       </a>
     </div>
 
-    <div id="blogStatus" class="text-slate-500 text-sm" role="status" aria-live="polite">
-      Loading posts…
+     <div class="border border-slate-200 bg-tuaLight p-10 text-center">
+      <p class="text-slate-600 mb-6">
+        Visit our blog to read the latest updates, case studies, and insights.
+      </p>
+      <a class="inline-block bg-tuaNavy text-white px-6 py-3 hover:bg-tuaBlue transition focus-ring"
+         href="https://blog.tuatua.kr"
+         target="_blank"
+         rel="noopener noreferrer">
+        Go to Blog
+      </a>
     </div>
 
-    <div id="blogGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6"></div>
   </div>
 </section>
 
@@ -502,105 +511,13 @@
       });
     })();
   </script>
-<script>
-  (async function () {
-    const MAX_POSTS = 6;
 
-    // 1) 실제 블로그가 있는 곳(서브도메인)의 RSS 후보를 먼저 시도
-    // 2) CORS로 막히면 r.jina.ai 프록시로 재시도(정적 사이트에서 가장 간단한 해결책)
-    const FEED_URLS = [
-      "https://blog.tuatua.kr/feed/",
-      "https://blog.tuatua.kr/rss/",
-      "https://blog.tuatua.kr/?feed=rss2",
-      "https://r.jina.ai/https://blog.tuatua.kr/feed/",
-      "https://r.jina.ai/http://blog.tuatua.kr/feed/"
-    ];
-
-    const statusEl = document.getElementById("blogStatus");
-    const gridEl = document.getElementById("blogGrid");
-    if (!statusEl || !gridEl) return;
-
-    function escapeHtml(s) {
-      return String(s || "").replace(/[&<>"']/g, m => ({
-        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-      }[m]));
-    }
-    function stripTags(html) {
-      const tmp = document.createElement("div");
-      tmp.innerHTML = html || "";
-      return (tmp.textContent || "").trim();
-    }
-
-    async function fetchFirstWorking(urls) {
-      let lastErr = null;
-      for (const url of urls) {
-        try {
-          const res = await fetch(url, { cache: "no-store" });
-          if (!res.ok) throw new Error("HTTP " + res.status + " @ " + url);
-          const text = await res.text();
-          return { url, text };
-        } catch (e) {
-          lastErr = e;
-        }
-      }
-      throw lastErr || new Error("All feed requests failed");
-    }
-
-    try {
-      statusEl.textContent = "Loading posts…";
-
-      const { text: xmlText } = await fetchFirstWorking(FEED_URLS);
-
-      const doc = new DOMParser().parseFromString(xmlText, "text/xml");
-      const items = Array.from(doc.querySelectorAll("item")).slice(0, MAX_POSTS);
-
-      if (!items.length) {
-        statusEl.textContent = "No posts yet.";
-        return;
-      }
-
-      gridEl.innerHTML = items.map(item => {
-        const title = item.querySelector("title")?.textContent?.trim() || "Untitled";
-        const link = item.querySelector("link")?.textContent?.trim() || "https://blog.tuatua.kr/";
-        const pubDate = item.querySelector("pubDate")?.textContent?.trim() || "";
-        const date = pubDate ? new Date(pubDate).toLocaleDateString() : "";
-        const desc = stripTags(item.querySelector("description")?.textContent || "");
-        const excerpt = desc.length > 160 ? desc.slice(0, 160) + "…" : desc;
-
-        return `
-          <article class="border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-            <div class="p-8 grid gap-4">
-              <p class="text-[11px] uppercase tracking-[0.2em] text-slate-500 font-bold">${escapeHtml(date)}</p>
-              <h3 class="font-display text-xl font-extrabold text-tuaNavy leading-snug">
-                <a class="hover:text-tuaBlue transition focus-ring"
-                   href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">
-                  ${escapeHtml(title)}
-                </a>
-              </h3>
-              <p class="text-slate-600 leading-relaxed">${escapeHtml(excerpt)}</p>
-              <div class="pt-1">
-                <a class="text-tuaBlue font-bold text-sm hover:underline focus-ring"
-                   href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">
-                  Read more
-                </a>
-              </div>
-            </div>
-          </article>
-        `;
-      }).join("");
-
-      statusEl.textContent = "";
-    } catch (e) {
-      statusEl.textContent = "Unable to load posts.";
-      console.log(e);
-    }
-  })();
-</script>
 
 
 
 </body>
 </html>
+
 
 
 
