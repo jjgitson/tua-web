@@ -1,56 +1,43 @@
-/* TUA Co., Ltd. Custom Styles */
+/* TUA Co., Ltd. Style Sheet */
 
-/* 1. 기본 텍스트 최적화 */
 body {
-    word-break: keep-all; /* 한글 가독성 및 단어 끊김 방지 */
+    word-break: keep-all;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
-/* 2. 섹션 스크롤 위치 보정 (네비게이션 높이 고려) */
-section {
-    scroll-margin-top: 80px;
-}
-
-/* 3. 배경 그레이스케일 심볼 효과 */
+/* 배경 그레이스케일 심볼 (가독성을 위한 극미세 투명도) */
 .grayscale-bg {
     filter: grayscale(100%);
-    opacity: 0.03;
+    opacity: 0.025; /* 톤을 낮춤 */
     pointer-events: none;
     user-select: none;
 }
 
-/* 4. 부드러운 상호작용 (Transitions) */
-a, button, input, textarea {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+section {
+    scroll-margin-top: 80px;
 }
 
-/* 5. 폼 입력창 포커스 스타일 */
-input:focus, textarea:focus {
-    box-shadow: 0 4px 12px rgba(0, 145, 210, 0.08); /* 로고 블루톤 그림자 */
-    border-color: #0091D2 !important;
+/* 폰트 및 자간 최적화 */
+.font-display {
+    letter-spacing: -0.03em;
 }
 
-/* 6. 스크롤바 커스텀 (모던한 느낌) */
+p {
+    letter-spacing: -0.01em;
+}
+
+/* 폼 요소 정제 (각진 디자인으로 변경) */
+input, textarea, button {
+    border-radius: 0; /* 이탤릭/둥근 느낌 최소화 */
+}
+
+/* 스크롤바 */
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 5px;
 }
 ::-webkit-scrollbar-track {
     background: #f8fafc;
 }
 ::-webkit-scrollbar-thumb {
-    background: #0091D2; /* TUA Blue */
-    border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #1E3A5F; /* TUA Navy on hover */
-}
-
-/* 7. 폰트 레이어링 최적화 */
-.font-display {
-    letter-spacing: -0.02em;
-}
-
-p {
-    letter-spacing: -0.01em;
+    background: #0091D2;
 }
