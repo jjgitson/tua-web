@@ -170,3 +170,24 @@ input, textarea, button {
   font-size: 15px;
   line-height: 1.7;
 }
+.skip-link{
+  position:absolute;
+  left:-9999px;
+  top:auto;
+  width:1px;
+ height:1px;
+  overflow:hidden;
+}
+.skip-link:focus{
+  position:absolute;
+  left:12px;
+  top:12px;
+  width:auto;
+  height:auto;
+  padding:10px 12px;
+  background:#ffffff;
+  color:#003358;
+  border:2px solid #003358;
+  z-index:9999;
+}
+
