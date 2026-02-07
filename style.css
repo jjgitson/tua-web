@@ -1,43 +1,56 @@
-/* Custom Global Styles */
+/* TUA Co., Ltd. Custom Styles */
 
-/* 폰트 최적화 */
+/* 1. 기본 텍스트 최적화 */
 body {
-    word-break: keep-all;
+    word-break: keep-all; /* 한글 가독성 및 단어 끊김 방지 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* 마키 애니메이션 (배너 슬라이드) */
-@keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-.animate-marquee {
-    display: inline-flex;
-    animation: marquee 40s linear infinite;
-    width: max-content;
+/* 2. 섹션 스크롤 위치 보정 (네비게이션 높이 고려) */
+section {
+    scroll-margin-top: 80px;
 }
 
-/* 로고 플로팅 애니메이션 */
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
-.animate-float {
-    animation: float 5s ease-in-out infinite;
+/* 3. 배경 그레이스케일 심볼 효과 */
+.grayscale-bg {
+    filter: grayscale(100%);
+    opacity: 0.03;
+    pointer-events: none;
+    user-select: none;
 }
 
-/* 폼 입력 포커스 효과 */
+/* 4. 부드러운 상호작용 (Transitions) */
+a, button, input, textarea {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 5. 폼 입력창 포커스 스타일 */
 input:focus, textarea:focus {
-    box-shadow: 0 10px 30px -10px rgba(0, 145, 210, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 145, 210, 0.08); /* 로고 블루톤 그림자 */
+    border-color: #0091D2 !important;
 }
 
-/* 스크롤바 커스텀 */
+/* 6. 스크롤바 커스텀 (모던한 느낌) */
 ::-webkit-scrollbar {
     width: 6px;
 }
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #f8fafc;
 }
 ::-webkit-scrollbar-thumb {
-    background: #0091D2;
+    background: #0091D2; /* TUA Blue */
     border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #1E3A5F; /* TUA Navy on hover */
+}
+
+/* 7. 폰트 레이어링 최적화 */
+.font-display {
+    letter-spacing: -0.02em;
+}
+
+p {
+    letter-spacing: -0.01em;
 }
