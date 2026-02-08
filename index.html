@@ -336,64 +336,72 @@
 
 
     
-    <section id="contact" class="py-32 bg-white">
-      <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 items-start">
-        <div>
-          <img src="tua-symbol.png" alt="TUA Symbol" class="h-10 mb-12">
-          <h2 class="font-display text-4xl font-extrabold mb-8 text-tuaNavy">Ready to grow your impact?</h2>
+  <section id="contact" class="py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 items-start">
+    <div class="relative">
+      <!-- 워터마크 심볼 추가 -->
+      <div class="symbol-watermark">
+        <img src="tua-symbol.png" alt="" class="w-full">
+      </div>
+      
+      <!-- 기존 콘텐츠 (relative z-10 추가) -->
+      <div class="relative z-10">
+        <img src="tua-text.png" alt="TUA Logo" class="h-10 mb-12">
+        <h2 class="font-display text-4xl font-extrabold mb-8 text-tuaNavy">Ready to grow your impact?</h2>
 
-          <div class="space-y-6">
-            <p class="font-bold text-xl md:text-2xl text-tuaBlue">
-              <a class="focus-ring" href="mailto:info@tuatua.kr">info@tuatua.kr</a>
-            </p>
+        <div class="space-y-6">
+          <p class="font-bold text-xl md:text-2xl text-tuaBlue">
+            <a class="focus-ring" href="mailto:info@tuatua.kr">info@tuatua.kr</a>
+          </p>
 
-            <p class="text-slate-500 text-xs md:text-[12px] font-bold uppercase tracking-widest leading-loose">
-              7-179, 8 Gangnam-daero 53-gil,<br>Seocho-gu, Seoul, Republic of Korea
-            </p>
-          </div>
+          <p class="text-slate-500 text-xs md:text-[12px] font-bold uppercase tracking-widest leading-loose">
+            7-179, 8 Gangnam-daero 53-gil,<br>Seocho-gu, Seoul, Republic of Korea
+          </p>
         </div>
+      </div>
+    </div>
 
     <form action="https://formspree.io/f/meelqggb"
       method="POST"
       class="bg-tuaLight p-10 grid gap-6 border border-slate-100"
       aria-labelledby="contactTitle">
 
-          <h3 id="contactTitle" class="sr-only">Contact form</h3>
+      <h3 id="contactTitle" class="sr-only">Contact form</h3>
 
-          <div class="grid md:grid-cols-2 gap-6">
-            <div>
-              <label for="name" class="text-sm text-slate-700">Name</label>
-              <input id="name" name="name" autocomplete="name" required
-                     type="text"
-                     class="bg-white p-4 w-full outline-none border border-slate-200 focus:border-tuaBlue transition">
-            </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <label for="name" class="text-sm text-slate-700">Name</label>
+          <input id="name" name="name" autocomplete="name" required
+                 type="text"
+                 class="bg-white p-4 w-full outline-none border border-slate-200 focus:border-tuaBlue transition">
+        </div>
 
-            <div>
-              <label for="email" class="text-sm text-slate-700">Email</label>
-              <input id="email" name="email" autocomplete="email" required
-                     type="email"
-                     class="bg-white p-4 w-full outline-none border border-slate-200 focus:border-tuaBlue transition">
-            </div>
-          </div>
-
-          <div>
-            <label for="message" class="text-sm text-slate-700">How can we help?</label>
-            <textarea id="message" name="message" rows="5" required
-                      class="bg-white p-4 w-full outline-none border border-slate-200 focus:border-tuaBlue transition"></textarea>
-          </div>
-<input type="hidden" name="_redirect" value="https://tuatua.kr/thanks.html">
-
-          <button type="submit"
-                  class="bg-tuaNavy text-white font-bold py-4 hover:bg-tuaBlue transition uppercase text-[12px] tracking-[0.18em] focus-ring">
-            Send Inquiry
-          </button>
-
-          <p class="text-xs text-slate-500 leading-relaxed">
-            By sending this form, you agree that TUA may use your contact information to respond to your inquiry.
-          </p>
-        </form>
+        <div>
+          <label for="email" class="text-sm text-slate-700">Email</label>
+          <input id="email" name="email" autocomplete="email" required
+                 type="email"
+                 class="bg-white p-4 w-full outline-none border border-slate-200 focus:border-tuaBlue transition">
+        </div>
       </div>
-    </section>
+
+      <div>
+        <label for="message" class="text-sm text-slate-700">How can we help?</label>
+        <textarea id="message" name="message" rows="5" required
+                  class="bg-white p-4 w-full outline-none border border-slate-200 focus:border-tuaBlue transition"></textarea>
+      </div>
+      <input type="hidden" name="_redirect" value="https://tuatua.kr/thanks.html">
+
+      <button type="submit"
+              class="bg-tuaNavy text-white font-bold py-4 hover:bg-tuaBlue transition uppercase text-[12px] tracking-[0.18em] focus-ring">
+        Send Inquiry
+      </button>
+
+      <p class="text-xs text-slate-500 leading-relaxed">
+        By sending this form, you agree that TUA may use your contact information to respond to your inquiry.
+      </p>
+    </form>
+  </div>
+</section>
   </main>
 
   <footer class="py-12 bg-white border-t border-slate-50 text-center">
@@ -494,6 +502,7 @@
 
 </body>
 </html>
+
 
 
 
