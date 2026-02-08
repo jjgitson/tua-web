@@ -191,3 +191,8 @@ input, textarea, button {
   z-index:9999;
 }
 
+/* Contact section logo blur */
+#contact img[src="tua-text.png"] {
+  filter: blur(1.5px);
+  opacity: 0.8;
+}
