@@ -191,4 +191,18 @@ input, textarea, button {
   z-index:9999;
 }
 
+/* CSS에 추가 */
+#contact .symbol-watermark {
+  position: absolute;
+  left: -5%;
+  top: 10%;
+  width: 280px;
+  opacity: 0.04;
+  z-index: 0;
+}
+
+#contact > div > div:first-child {
+  position: relative;
+  z-index: 1;
+}
 
